@@ -1,4 +1,5 @@
-const testStr = "abacc111";  // test string
+const testStr = "Abc";  // test string
+
 
 /** this fucntion was written part of the Assignments and 
  * reused here to sort the string first
@@ -18,12 +19,13 @@ const ascCaseStringSort = (str) => {
 
 /** implemented this using Map() object for each letter
  * and the key for the occurances**/
-const countDup = (str) => {
+const isIsogram = (str) => {
     const sortedStr = ascCaseStringSort(str);
     console.log(sortedStr); // printed sorted list
     const mapCounter = new Map(); // map object to store dups
     let counter = 1;
     let keyCounter = 0;
+    let isIsogram=false;
     for (let i = 0; i < str.length; i++) {
 
         if (sortedStr[i] === sortedStr[i + 1]) {
@@ -38,16 +40,18 @@ const countDup = (str) => {
     for (let [key,value] of mapCounter) {
         
         if (value > 1) {
-            console.log(`${key} occurs: ${value} times`);
+            
+            isIsogram=false;
             keyCounter++;
+            
         }
 
     }
     if (keyCounter===0)
     {
-        console.log("0 #, no charachters repeat more than once");
+        isIsogram=true;
     }
-
+ return isIsogram;
 }
 // call the function
-countDup(testStr);
+console.log(isIsogram(testStr));
