@@ -1,1 +1,1 @@
-console.log(sortedStr);
+let result= newStr.filter((s,i,a)=> a.indexOf(s)===i);
